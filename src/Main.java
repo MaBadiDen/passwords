@@ -3,7 +3,7 @@ import exceptions.WrongPasswordException;
 
 public class Main {
     public static void main(String[] args) {
-        if(checkUserParameters("Ababababababababab", "1234", "123")) {
+        if(checkUserParameters("Ababababababababab", "1234%", "1234%")) {
             System.out.println("Пользователь красавчик");
         } else {
             System.out.println("Пользователь клоун");
@@ -23,9 +23,9 @@ public class Main {
     }
 
     public static void checkLogin(String login) {
-        if(login.length() > 20) throw new WrongLoginException();
+        if(login.length() > 20 || login.matches("\\w+")) throw new WrongLoginException();
     }
     public static void checkPassword(String password, String confirmPassword) {
-        if(password.length() >= 20 || !password.equals(confirmPassword)) throw new WrongPasswordException();
+        if(password.length() >= 20 || !password.equals(confirmPassword) || password.matches("\\w+")) throw new WrongPasswordException();
     }
 }
