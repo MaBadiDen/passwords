@@ -4,9 +4,9 @@ import exceptions.WrongPasswordException;
 public class Main {
     public static void main(String[] args) {
         if(checkUserParameters("Ababababababababab", "1234%", "1234%")) {
-            System.out.println("Пользователь красавчик");
+            System.out.println("Логин и пароль правильные");
         } else {
-            System.out.println("Пользователь клоун");
+            System.out.println("Логин или пароль неправильные");
         }
     }
 
